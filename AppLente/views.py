@@ -15,5 +15,5 @@ def recetas(request):
 def contacto(request):
     return render(request, 'AppLente/contacto.html')
 
-
-
+def reportes(request):
+    return render(request, 'AppLente/reportes.html')
