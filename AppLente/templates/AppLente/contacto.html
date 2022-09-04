@@ -2,5 +2,21 @@
 {% block tittle %} CONTACTOS {% endblock %}
 
 {% block pagina %} contacto {% endblock %}
-{% block contenido %} Contactenos, nos pondremos en contacto con usted lo antes posible: {% endblock %}
+{% block contenido %}
+
+Contactenos, nos pondremos en contacto con usted lo antes posible:
+
+<br>
+
+    <form action="" method="POST">
+    {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <input type="submit" value="Enviar">
+
+    </form>
+
+
+{% endblock %}
 

@@ -1,6 +1,7 @@
-from django.shortcuts import render
-
+from django.shortcuts import render, redirect
+from AppLente.models import Contacto
 from django.http import HttpResponse
+from AppLente.forms import Contactoformulario
 
 
 def inicio(request):
@@ -13,7 +14,13 @@ def recetas(request):
     return render(request, 'AppLente/recetas.html')
 
 def contacto(request):
-    return render(request, 'AppLente/contacto.html')
+
+    contexto = {
+        'form': Contactoformulario()
+    }
+
+    return render(request, 'AppLente/contacto.html', contexto)
 
 def reportes(request):
     return render(request, 'AppLente/reportes.html')
+
