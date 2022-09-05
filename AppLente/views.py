@@ -57,5 +57,7 @@ def cotizar(request):
 def recetas(request):
     return render(request, 'AppLente/recetas.html')
 
+#holaaa
+
 
 
