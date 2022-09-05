@@ -17,6 +17,11 @@ Contactenos, nos pondremos en contacto con usted lo antes posible:
 
     </form>
 
+    {% for contacto in contactos %}
+    NOMBRE: {{ contacto.nombre }}, NUMERO {{ contacto.numero }}, CORREO {{ contacto.correo }}, MENSAJE {{ contacto.mensaje }}
+    <br>
+    {% endfor %}
+
 
 {% endblock %}
 

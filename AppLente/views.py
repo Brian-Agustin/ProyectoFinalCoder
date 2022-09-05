@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from AppLente.models import Contacto
 from django.http import HttpResponse
 from AppLente.forms import Contactoformulario
+from datetime import datetime
 
 
 def inicio(request):
@@ -15,8 +16,21 @@ def recetas(request):
 
 def contacto(request):
 
+
+    if request.method == 'POST':
+        mi_formulario = Contactoformulario(request.POST)
+        if mi_formulario.is_valid():
+            data = mi_formulario.cleaned_data
+            contacto1 = Contacto(nombre=data.get('nombre'), numero=data.get('numero'), correo=data.get('correo'), mensaje=data.get('mensaje'))
+            contacto1.save()
+
+            return redirect('contacto')
+
+    contactos = Contacto.objects.all()
+
     contexto = {
-        'form': Contactoformulario()
+        'form': Contactoformulario(),
+        'contactos': contactos
     }
 
     return render(request, 'AppLente/contacto.html', contexto)
