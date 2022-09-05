@@ -17,3 +17,4 @@ class Turnof(forms.Form):
 class Cotizaf(forms.Form):
     servicio = forms.CharField(max_length=50)
     mensaje = forms.CharField(max_length=50)
+
