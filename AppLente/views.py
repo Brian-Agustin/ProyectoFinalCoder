@@ -3,49 +3,22 @@ from AppLente.models import Contacto, Turno, Cotiza
 from django.http import HttpResponse
 from AppLente.forms import Contactof, Turnof, Cotizaf
 from datetime import datetime
-
-
 def inicio(request):
     return render(request, 'index.html')
-
-
-
-
-
-
-
-
 def turno(request):
-
     if request.method == 'POST':
         mi_formulario = Turnof(request.POST)
         if mi_formulario.is_valid():
             data = mi_formulario.cleaned_data
             turno1 = Turno(nombre=data.get('nombre'), numero=data.get('numero'), correo=data.get('correo'), dni=data.get('dni'), fecha=data.get('fecha'))
             turno1.save()
-
             return redirect('turnos')
-
     turnos = Turno.objects.all()
-
     contexto = {
         'form': Turnof(),
         'turnos': turnos
     }
-
     return render(request, 'AppLente/turnos.html', contexto)
-
-
-
-
-
-
-
-
-
-
-
-
 
 def contacto(request):
 
@@ -66,9 +39,6 @@ def contacto(request):
     }
 
     return render(request, 'AppLente/contacto.html', contexto)
-
-
-
 def cotizar(request):
 
     if request.method == 'POST':
@@ -77,46 +47,16 @@ def cotizar(request):
             data = mi_formulario.cleaned_data
             cotiza1 = Cotiza(servicio=data.get('servicio'), mensaje=data.get('mensaje'))
             cotiza1.save()
-
             return redirect('cotizar')
-
     cotizar = Cotiza.objects.all()
-
     contexto = {
         'form': Cotizaf(),
         'cotizar': cotizar
     }
-
-
     return render(request, 'AppLente/cotiza.html', contexto)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 def recetas(request):
     return render(request, 'AppLente/recetas.html')
+#ok
 
 
 
