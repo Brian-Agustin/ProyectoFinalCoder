@@ -1,0 +1,31 @@
+{% extends 'base/base.html' %}
+{% block tittle %} COTIZA {% endblock %}
+
+{% block pagina %} cotizar {% endblock %}
+{% block contenido %}
+<h1>¿Cómo trabajamos?</h1>
+<br>
+<h4>1 ➡️ Completá el formulario a continuación, según el servicio que necesites.</h4>
+<br>
+<h4>2 ➡️ Recibís el presupuesto por correo.</h4>
+<br>
+<h4>3 ➡️ Pasamos a buscar, lo retiramos en la puerta de tu domicilio sin cargo. Consultanos por métodos y costos de envío.</h4>
+<br>
+<h4>4 ➡️ Realizamos el trabajo en un lapso de 5 a 7 días hábiles.</h4>
+<br>
+<h4>5 ➡️ RECIBÍS TU ANTEOJO RESTAURADO sin moverte de casa.</h4>
+
+<br>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Enviar">
+    </form>
+    {% for cotiza in cotizar %}
+    SERVICIO: {{ cotiza.servicio }}, MENSAJE {{ cotiza.mensaje }}
+    <br>
+    {% endfor %}
+
+
+{% endblock %}

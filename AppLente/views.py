@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
-from AppLente.models import Contacto, Turno
+from AppLente.models import Contacto, Turno, Cotiza
 from django.http import HttpResponse
-from AppLente.forms import Contactof, Turnof
+from AppLente.forms import Contactof, Turnof, Cotizaf
 from datetime import datetime
 
 
@@ -35,6 +35,18 @@ def turno(request):
 
     return render(request, 'AppLente/turnos.html', contexto)
 
+
+
+
+
+
+
+
+
+
+
+
+
 def contacto(request):
 
     if request.method == 'POST':
@@ -57,6 +69,48 @@ def contacto(request):
 
 
 
+def cotizar(request):
+
+    if request.method == 'POST':
+        mi_formulario = Cotizaf(request.POST)
+        if mi_formulario.is_valid():
+            data = mi_formulario.cleaned_data
+            cotiza1 = Cotiza(servicio=data.get('servicio'), mensaje=data.get('mensaje'))
+            cotiza1.save()
+
+            return redirect('cotizar')
+
+    cotizar = Cotiza.objects.all()
+
+    contexto = {
+        'form': Cotizaf(),
+        'cotizar': cotizar
+    }
+
+
+    return render(request, 'AppLente/cotiza.html', contexto)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -64,8 +118,7 @@ def contacto(request):
 def recetas(request):
     return render(request, 'AppLente/recetas.html')
 
-def reportes(request):
-    return render(request, 'AppLente/reportes.html')
+
 
 
 

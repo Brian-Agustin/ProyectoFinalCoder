@@ -8,6 +8,8 @@
 {% block contenido %}
 ¿Quieres sacar un turno? por favor rellena todos los campos a continuacion.
 <br>
+<h1>TURNOS:</h1>
+<br>
     <form action="" method="POST">
         {% csrf_token %}
         {{ form.as_p }}

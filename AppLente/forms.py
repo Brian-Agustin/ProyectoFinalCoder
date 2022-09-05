@@ -13,3 +13,7 @@ class Turnof(forms.Form):
     correo = forms.EmailField()
     dni = forms.IntegerField()
     fecha = forms.CharField(max_length=50)
+
+class Cotizaf(forms.Form):
+    servicio = forms.CharField(max_length=50)
+    mensaje = forms.CharField(max_length=50)
