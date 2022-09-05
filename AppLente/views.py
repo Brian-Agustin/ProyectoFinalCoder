@@ -1,24 +1,44 @@
 from django.shortcuts import render, redirect
-from AppLente.models import Contacto
+from AppLente.models import Contacto, Turno
 from django.http import HttpResponse
-from AppLente.forms import Contactoformulario
+from AppLente.forms import Contactof, Turnof
 from datetime import datetime
 
 
 def inicio(request):
     return render(request, 'index.html')
 
-def turnos(request):
-    return render(request, 'AppLente/turnos.html')
 
-def recetas(request):
-    return render(request, 'AppLente/recetas.html')
+
+
+
+
+
+
+def turno(request):
+
+    if request.method == 'POST':
+        mi_formulario = Turnof(request.POST)
+        if mi_formulario.is_valid():
+            data = mi_formulario.cleaned_data
+            turno1 = Turno(nombre=data.get('nombre'), numero=data.get('numero'), correo=data.get('correo'), dni=data.get('dni'), fecha=data.get('fecha'))
+            turno1.save()
+
+            return redirect('turnos')
+
+    turnos = Turno.objects.all()
+
+    contexto = {
+        'form': Turnof(),
+        'turnos': turnos
+    }
+
+    return render(request, 'AppLente/turnos.html', contexto)
 
 def contacto(request):
 
-
     if request.method == 'POST':
-        mi_formulario = Contactoformulario(request.POST)
+        mi_formulario = Contactof(request.POST)
         if mi_formulario.is_valid():
             data = mi_formulario.cleaned_data
             contacto1 = Contacto(nombre=data.get('nombre'), numero=data.get('numero'), correo=data.get('correo'), mensaje=data.get('mensaje'))
@@ -29,12 +49,23 @@ def contacto(request):
     contactos = Contacto.objects.all()
 
     contexto = {
-        'form': Contactoformulario(),
+        'form': Contactof(),
         'contactos': contactos
     }
 
     return render(request, 'AppLente/contacto.html', contexto)
 
+
+
+
+
+
+
+def recetas(request):
+    return render(request, 'AppLente/recetas.html')
+
 def reportes(request):
     return render(request, 'AppLente/reportes.html')
+
+
 
