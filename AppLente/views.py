@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from AppLente.models import Contacto, Turno, Cotiza
 from django.http import HttpResponse
-from AppLente.forms import Contactof, Turnof, Cotizaf
+from AppLente.forms import Contactof, Turnof, Cotizaf,BuscaTurnoPorDNI
 from datetime import datetime
 def inicio(request):
     return render(request, 'index.html')
@@ -37,8 +37,10 @@ def contacto(request):
         'form': Contactof(),
         'contactos': contactos
     }
-
+    
     return render(request, 'AppLente/contacto.html', contexto)
+
+
 def cotizar(request):
 
     if request.method == 'POST':
@@ -54,10 +56,21 @@ def cotizar(request):
         'cotizar': cotizar
     }
     return render(request, 'AppLente/cotiza.html', contexto)
+
 def recetas(request):
-    return render(request, 'AppLente/recetas.html')
+    con = {
+        'form' : BuscaTurnoPorDNI()
+    }
 
-#holaaa
+    return render(request, 'AppLente/recetas.html',con)
 
+def resultadoBusqueda(request):
+    resultado =request.GET.get('dni')
+    dniEncontrado = Turno.objects.filter(dni__exact = resultado).values('dni')
+    tipoDNI = dniEncontrado.values()
+    con = {
+        'resultado': dniEncontrado,
+        'tipo': tipoDNI
+    }
 
-
+    return render(request,"AppLente/resultadoBusqueda.html",con)

@@ -2,4 +2,17 @@
 {% block tittle %} RECETAS {% endblock %}
 
 {% block pagina %} recetas {% endblock %}
-{% block contenido %} Envianos tu receta aqui: {% endblock %}
+{% block contenido %} 
+
+<br>
+<h2>Envianos tu DNI aqui:</h2>
+<br>
+    <form action="/resultadoBusqueda" method="GET">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Buscar">
+    </form>
+
+
+
+{% endblock %}
