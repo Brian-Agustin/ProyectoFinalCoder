@@ -65,12 +65,15 @@ def recetas(request):
     return render(request, 'AppLente/recetas.html',con)
 
 def resultadoBusqueda(request):
-    resultado =request.GET.get('dni')
-    dniEncontrado = Turno.objects.filter(dni__exact = resultado).values('dni')
-    tipoDNI = dniEncontrado.values()
-    con = {
-        'resultado': dniEncontrado,
-        'tipo': tipoDNI
-    }
-
-    return render(request,"AppLente/resultadoBusqueda.html",con)
+    resultado = request.GET.get('dni')
+    try:
+        dniEncontrado = Turno.objects.filter(dni__exact = resultado).values('dni')
+        con = {
+            'resultado': dniEncontrado.get()['dni'],
+        }
+        return render(request,"AppLente/resultadoBusqueda.html",con)
+    except:
+        con = {
+            'resultado': "Tu dni nunca ingreso en la base de datos"
+        }
+        return render(request,"AppLente/resultadoBusqueda.html",con)
