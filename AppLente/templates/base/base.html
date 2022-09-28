@@ -76,8 +76,16 @@
 					</div>
 					<div class="col-xs-10 text-right menu-1">
 						<ul>
-							<li class="btn btn-primary btn-learn"><a href="{% url 'AppUserLogin' %}">Iniciar Sesion</a></li>
-							<li class="btn btn-primary btn-learn"><a href="{% url 'inicio' %}">Registrarse</a></li>
+							{% if user.is_authenticated %}
+								<h5>Hola: {{ user.get_username }}</h5>
+								<li class="btn btn-primary btn-learn"><a href="{% url 'AppUserlogout' %}">Cerrar Sesion</a></li>
+
+							{% else %}
+								<li class="btn btn-primary btn-learn"><a href="{% url 'AppUserLogin' %}">Iniciar Sesion</a></li>
+								<li class="btn btn-primary btn-learn"><a href="{% url 'AppUserRegister' %}">Registrarse</a></li>
+
+							{% endif %}
+
 							<li><a href="{% url 'inicio' %}">Inicio</a></li>
 							<li><a href="{% url 'turnos' %}">Turnos</a></li>
 							<li class="has-dropdown">

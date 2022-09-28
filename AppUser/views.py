@@ -1,9 +1,12 @@
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
 from django.contrib import messages
 
 # Create your views here.
+from AppUser.forms import UserRegisterForm
+
+
 def login_request(request):
     if request.method == 'POST':
         form = AuthenticationForm(request, data = request.POST)
@@ -33,7 +36,33 @@ def login_request(request):
 
     contexto = {
         'form': AuthenticationForm(),
-        'name_submit': 'login'
+        'name_submit': 'login',
+        'nombre_form': 'Ingresar',
+    }
+
+    return render(request, "AppUser/login.html", contexto)
+
+
+def register(request):
+    if request.method == 'POST':
+
+        #form = UserCreationForm(request.POST)
+        form = UserRegisterForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            messages.info(request, 'Usuario registrado correctamente!')
+
+        else:
+            messages.info(request, 'Tu Usuario no pudo ser registrado!')
+
+        return redirect('inicio')
+
+
+    contexto = {
+        #'form': UserCreationForm(),
+        'form': UserRegisterForm(),
+        'nombre_form': 'Registro'
     }
 
     return render(request, "AppUser/login.html", contexto)
