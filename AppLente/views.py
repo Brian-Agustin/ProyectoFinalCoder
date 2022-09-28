@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
@@ -8,6 +9,8 @@ from AppLente.forms import Contactof, Turnof, Cotizaf,BuscaTurnoPorDNI
 from datetime import datetime
 def inicio(request):
     return render(request, 'index.html')
+
+@login_required
 def turno(request):
     if request.method == 'POST':
         mi_formulario = Turnof(request.POST)
@@ -23,6 +26,8 @@ def turno(request):
     }
     return render(request, 'AppLente/turnos.html', contexto)
 
+
+@login_required
 def contacto(request):
 
     if request.method == 'POST':
@@ -44,6 +49,7 @@ def contacto(request):
     return render(request, 'AppLente/contacto.html', contexto)
 
 
+@login_required
 def cotizar(request):
 
     if request.method == 'POST':
@@ -60,12 +66,15 @@ def cotizar(request):
     }
     return render(request, 'AppLente/cotiza.html', contexto)
 
+
+@login_required
 def recetas(request):
     con = {
         'form' : BuscaTurnoPorDNI()
     }
 
     return render(request, 'AppLente/recetas.html',con)
+
 
 def resultadoBusqueda(request):
     resultado = request.GET.get('dni')

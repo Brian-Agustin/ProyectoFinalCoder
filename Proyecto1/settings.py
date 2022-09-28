@@ -134,7 +134,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #LOGIN_URL, MEDIA_URL, MEDIA_ROOT
 
-
+LOGIN_URL = 'AppUserLogin'
 
 
 bd_from_env = dj_database_url.config(conn_max_age=500)
