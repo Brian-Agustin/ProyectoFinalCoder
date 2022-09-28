@@ -1,4 +1,7 @@
 from django.shortcuts import render, redirect
+from django.contrib import messages
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import authenticate
 from AppLente.models import Contacto, Turno, Cotiza
 from django.http import HttpResponse
 from AppLente.forms import Contactof, Turnof, Cotizaf,BuscaTurnoPorDNI
@@ -77,3 +80,4 @@ def resultadoBusqueda(request):
             'resultado': "Tu dni nunca ingreso en la base de datos"
         }
         return render(request,"AppLente/resultadoBusqueda.html",con)
+

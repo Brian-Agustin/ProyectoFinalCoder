@@ -76,7 +76,9 @@
 					</div>
 					<div class="col-xs-10 text-right menu-1">
 						<ul>
-							<li class="active"><a href="{% url 'inicio' %}">Inicio</a></li>
+							<li class="btn btn-primary btn-learn"><a href="{% url 'AppUserLogin' %}">Iniciar Sesion</a></li>
+							<li class="btn btn-primary btn-learn"><a href="{% url 'inicio' %}">Registrarse</a></li>
+							<li><a href="{% url 'inicio' %}">Inicio</a></li>
 							<li><a href="{% url 'turnos' %}">Turnos</a></li>
 							<li class="has-dropdown">
 								<a href="{% url 'recetas' %}">Recetas</a>
@@ -90,6 +92,13 @@
 			</div>
 		</div>
 	</nav>
+
+
+	{% for message in messages %}
+		<p>{{ message }}</p>
+	{% endfor %}
+
+
 	<div class="container-wrap">
 		<aside id="fh5co-hero">
 			<div class="flexslider">

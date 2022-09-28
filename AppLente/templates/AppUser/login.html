@@ -1,0 +1,23 @@
+{% extends 'base/base.html' %}
+
+{% block tittle %} Login {% endblock%}
+
+{% block pagina %} iniciar sesion {% endblock %}
+
+
+{% block contenido %}
+A continuacion ingrese sus datos para ingresar.
+<br>
+<h1></h1>
+<br>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Login">
+    </form>
+    {% for turno in turnos %}
+    NOMBRE: {{ turno.nombre }}, NUMERO {{ turno.numero }}, CORREO {{ turno.correo }}, dni {{ turno.dni }}, fecha {{ turno.fecha }}
+    <br>
+    {% endfor %}
+
+{% endblock %}
