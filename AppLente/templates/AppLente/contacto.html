@@ -13,10 +13,6 @@ Nos pondremos en contacto con usted lo antes posible:
         {{ form.as_p }}
         <input type="submit" value="Enviar">
     </form>
-    {% for contacto in contactos %}
-    NOMBRE: {{ contacto.nombre }}, NUMERO {{ contacto.numero }}, CORREO {{ contacto.correo }}, MENSAJE {{ contacto.mensaje }}
-    <br>
-    {% endfor %}
 
 
 {% endblock %}

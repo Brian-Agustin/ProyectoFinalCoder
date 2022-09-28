@@ -22,10 +22,6 @@
         {{ form.as_p }}
         <input type="submit" value="Enviar">
     </form>
-    {% for cotiza in cotizar %}
-    SERVICIO: {{ cotiza.servicio }}, MENSAJE {{ cotiza.mensaje }}
-    <br>
-    {% endfor %}
 
 
 {% endblock %}
