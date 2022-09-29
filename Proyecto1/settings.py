@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-70$a$l=nv$vxxvhqwl5)3e@m=3j13bhih38%*(g3(s!=d#8zi7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'vidavisual.cf',
