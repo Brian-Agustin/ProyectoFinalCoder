@@ -1,0 +1,114 @@
+[33mcommit 0974ca14b21634391cff97d7cab2ad9bde1f40f7[m[33m ([m[1;36mHEAD -> [m[1;32mTurnos[m[33m)[m
+Author: Pedro Leon Kalil Suarez <peleoka12345@gmail.com>
+Date:   Wed Sep 28 22:38:53 2022 -0300
+
+    Subido a git, falta buscar turno en BD
+
+[33mcommit 905812957bc906c4c815dba68f82787fd142272e[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mrama_pedro_2[m[33m, [m[1;32mmain[m[33m)[m
+Author: Pedro Leon Kalil Suarez <peleoka12345@gmail.com>
+Date:   Mon Sep 5 23:35:38 2022 -0300
+
+    primera entrega tp final lista
+
+[33mcommit ec641bdc0066996c74d05242e9331dff3e41c910[m
+Merge: 51137f6 4a76ad1
+Author: Pedro Leon Kalil Suarez <peleoka12345@gmail.com>
+Date:   Mon Sep 5 22:46:47 2022 -0300
+
+    Merge branch 'rama_peter'
+
+[33mcommit 51137f60275f052dec53173af351190f57ca4675[m
+Author: Pedro Leon Kalil Suarez <peleoka12345@gmail.com>
+Date:   Mon Sep 5 22:46:30 2022 -0300
+
+    subir a github
+
+[33mcommit 4a76ad1f0b1faf52021d70fbb1c20d4d3a5a3473[m[33m ([m[1;32mrama_peter[m[33m)[m
+Author: Pedro Leon Kalil Suarez <peleoka12345@gmail.com>
+Date:   Mon Sep 5 22:42:35 2022 -0300
+
+    iconos y inicio de busqueda
+
+[33mcommit aca88a861c1c80e64a7c0e86e103fc43a241aeac[m
+Author: Pedro Leon Kalil Suarez <peleoka12345@gmail.com>
+Date:   Mon Sep 5 21:21:59 2022 -0300
+
+    cambio iconos
+
+[33mcommit ab383e7074ed4480e7ce0c1127641d23c941ee38[m
+Author: Pedro Leon Kalil Suarez <peleoka12345@gmail.com>
+Date:   Mon Sep 5 19:15:38 2022 -0300
+
+    firstCommit
+
+[33mcommit 9773ae8d2fca82bfc6b8e31bba442af70acb8a47[m[33m ([m[1;31morigin/braian_22[m[33m)[m
+Author: Brian-Agustin <braiian.dlv@gmail.com>
+Date:   Mon Sep 5 18:58:24 2022 -0300
+
+    prueba
+
+[33mcommit f4a61aaf29208308efcceeaabfd43cb3a0c0f9e4[m
+Author: Brian-Agustin <braiian.dlv@gmail.com>
+Date:   Mon Sep 5 18:54:35 2022 -0300
+
+    ss
+
+[33mcommit 38441fabdd73f27267f6738d3dc50d3d3c72d914[m
+Author: Brian-Agustin <braiian.dlv@gmail.com>
+Date:   Mon Sep 5 04:31:23 2022 -0300
+
+    modificacion
+
+[33mcommit a9fc115e240a08b42a3132eb072c99783c306192[m[33m ([m[1;31morigin/braian_cotiza[m[33m)[m
+Author: Brian-Agustin <braiian.dlv@gmail.com>
+Date:   Mon Sep 5 04:24:42 2022 -0300
+
+    se agrega formulario cotizacion
+
+[33mcommit 5aad32aaf3d0ffaae185950baab9d29a3b8e8ad0[m[33m ([m[1;31morigin/braian_turno[m[33m)[m
+Author: Brian-Agustin <braiian.dlv@gmail.com>
+Date:   Mon Sep 5 03:07:33 2022 -0300
+
+    se agrego formulario de turnos
+
+[33mcommit 0326f114814fdf380d436122a56cd26281c7b5f0[m
+Author: Brian-Agustin <braiian.dlv@gmail.com>
+Date:   Mon Sep 5 02:07:53 2022 -0300
+
+    modificacion
+
+[33mcommit 1942868da91d42b8fb70a37b400d21516cbd39c4[m[33m ([m[1;31morigin/braian[m[33m)[m
+Author: Brian-Agustin <braiian.dlv@gmail.com>
+Date:   Sun Sep 4 22:39:58 2022 -0300
+
+    mostrando contanco SQL
+
+[33mcommit da98732999dea201dfb126bd33d9107c3a9853d5[m
+Author: Brian-Agustin <braiian.dlv@gmail.com>
+Date:   Sun Sep 4 20:22:21 2022 -0300
+
+    Modifico url
+
+[33mcommit f42432e82baf2678ed9f5e1c020d324074750f83[m[33m ([m[1;31morigin/rama_braian2[m[33m)[m
+Author: Brian-Agustin <braiian.dlv@gmail.com>
+Date:   Sun Sep 4 20:05:34 2022 -0300
+
+    Se agrego formulario contacto, casi terminado
+
+[33mcommit fbe56bd67569de6764e35602111f534dbcb20a9f[m
+Author: Brian-Agustin <braiian.dlv@gmail.com>
+Date:   Sun Sep 4 17:38:17 2022 -0300
+
+    agrego herencias html ignore views y requirements
+
+[33mcommit 3c59ebc3f5e40aa606dab033b9c46c76d813fca6[m
+Author: Brian-Agustin <braiian.dlv@gmail.com>
+Date:   Sat Sep 3 23:32:05 2022 -0300
+
+    inicio rama braian
+
+[33mcommit a9bd758edbe944e9eb95c54ebd58d5255b829c69[m
+Author: Brian-Agustin <braiian.dlv@gmail.com>
+Date:   Sat Sep 3 23:23:36 2022 -0300
+
+    subiendo proyecto
