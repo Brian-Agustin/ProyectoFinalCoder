@@ -9,11 +9,15 @@
 <div>
     Esta es la pagina para sacar turnos.
 </div>
-
 Porfavor, rellena los campos a continuación.
 <br>
-<h1>TURNOS:</h1>
+
 <br>
-    ESTA ES LA PAGINA BUSCAR TURNO
+<h2>Envianos tu DNI aqui:</h2>
+    <form action="/resultadoBusquedaTurno" method="GET">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Buscar">
+    </form>
 
 {% endblock %}

@@ -1,7 +1,7 @@
 from unicodedata import name
 from django.urls import path
 
-from .views import inicio,turnos,recetas,contacto,cotizar,resultadoBusqueda,SacarTurnos,buscarTurnos
+from .views import inicio,turnos,recetas,contacto,cotizar,resultadoBusquedaReceta,SacarTurnos,buscarTurnos,resultadoBusquedaTurno
 from AppLente.views import *
 
 
@@ -11,7 +11,8 @@ urlpatterns = [
     path('recetas/', recetas, name="recetas"),
     path('contacto/', contacto, name="contacto"),
     path('cotizar/', cotizar, name="cotizar"),
-    path('resultadoBusqueda', resultadoBusqueda, name="resultadobusqueda"),
+    path('resultadoBusqueda', resultadoBusquedaReceta, name="resultadobusqueda"),
     path('turnos/',turnos, name="turnos"),
     path('buscarTurnos',buscarTurnos, name="buscarTurnos"),
+    path('resultadoBusquedaTurno/',resultadoBusquedaTurno, name="resultadoBusquedaTurno")
 ]

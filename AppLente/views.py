@@ -50,7 +50,7 @@ def recetas(request):
 
     return render(request, 'AppLente/recetas.html',con)
 
-def resultadoBusqueda(request):
+def resultadoBusquedaReceta(request):
     resultado = request.GET.get('dni')
     try:
         dniEncontrado = Turno.objects.filter(dni__exact = resultado).values('dni')
@@ -84,4 +84,20 @@ def turnos(request):
     return render(request,'AppLente/Turnos.html')
 
 def buscarTurnos(request):
-    return render(request,'AppLente/buscarTurno.html')
+    con ={ 'form' : BuscaTurnoPorDNI() }
+
+    return render(request,'AppLente/buscarTurno.html',con)
+
+def resultadoBusquedaTurno(request):
+    resultado = request.GET.get('dni')
+    try:
+        dniEncontrado = Turno.objects.filter(dni__exact = resultado).values('fecha')
+        con = {
+            'resultado': dniEncontrado.get()['fecha'],
+        }
+        return render(request,"AppLente/resultadoBusquedaTurno.html",con)
+    except:
+        con = {
+            'resultado': "Tu dni nunca ingreso en la base de datos"
+        }
+        return render(request,"AppLente/resultadoBusquedaTurno.html",con)
