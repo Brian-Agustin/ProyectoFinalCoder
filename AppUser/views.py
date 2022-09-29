@@ -9,7 +9,7 @@ from AppUser.forms import UserRegisterForm
 
 def login_request(request):
     if request.method == 'POST':
-        form = AuthenticationForm(request, data = request.POST)
+        form = AuthenticationForm(request, data=request.POST)
 
         if form.is_valid():
             data = form.cleaned_data #diccionario (username: 'asd', password: 'asd')
