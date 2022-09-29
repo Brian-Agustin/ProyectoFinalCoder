@@ -6,18 +6,10 @@
 
 
 {% block contenido %}
-¿Quieres sacar un turno? por favor rellena todos los campos a continuacion.
-<br>
-<h1>TURNOS:</h1>
-<br>
-    <form action="" method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Enviar">
-    </form>
-    {% for turno in turnos %}
-    NOMBRE: {{ turno.nombre }}, NUMERO {{ turno.numero }}, CORREO {{ turno.correo }}, dni {{ turno.dni }}, fecha {{ turno.fecha }}
-    <br>
-    {% endfor %}
+
+<div>
+    <a href="{% url 'SacarTurnos' %}" class="btn btn-primary btn-demo" style="margin: 3px 10px;">Sacar Turno</a>
+    <a href="{% url 'buscarTurnos' %}" class="btn btn-primary btn-demo" style="margin: 3px 10px;">Buscar Turno</a>
+</div>
 
 {% endblock %}

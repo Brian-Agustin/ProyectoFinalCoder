@@ -5,20 +5,6 @@ from AppLente.forms import Contactof, Turnof, Cotizaf,BuscaTurnoPorDNI
 from datetime import datetime
 def inicio(request):
     return render(request, 'index.html')
-def turno(request):
-    if request.method == 'POST':
-        mi_formulario = Turnof(request.POST)
-        if mi_formulario.is_valid():
-            data = mi_formulario.cleaned_data
-            turno1 = Turno(nombre=data.get('nombre'), numero=data.get('numero'), correo=data.get('correo'), dni=data.get('dni'), fecha=data.get('fecha'))
-            turno1.save()
-            return redirect('turnos')
-    turnos = Turno.objects.all()
-    contexto = {
-        'form': Turnof(),
-        'turnos': turnos
-    }
-    return render(request, 'AppLente/turnos.html', contexto)
 
 def contacto(request):
 
@@ -77,3 +63,25 @@ def resultadoBusqueda(request):
             'resultado': "Tu dni nunca ingreso en la base de datos"
         }
         return render(request,"AppLente/resultadoBusqueda.html",con)
+
+def SacarTurnos(request):
+    if request.method == 'POST':
+        mi_formulario = Turnof(request.POST)
+        if mi_formulario.is_valid():
+            data = mi_formulario.cleaned_data
+            turno1 = Turno(nombre=data.get('nombre'), numero=data.get('numero'), correo=data.get('correo'), dni=data.get('dni'), fecha=data.get('fecha'))
+            turno1.save()
+            return redirect('turnos')
+    turnos = Turno.objects.all()
+    contexto = {
+        'form': Turnof(),
+        'turnos': turnos
+    }
+    return render(request, 'AppLente/SacarTurnos.html', contexto)
+
+
+def turnos(request):
+    return render(request,'AppLente/Turnos.html')
+
+def buscarTurnos(request):
+    return render(request,'AppLente/buscarTurno.html')

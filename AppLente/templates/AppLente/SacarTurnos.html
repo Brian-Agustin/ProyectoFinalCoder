@@ -1,0 +1,24 @@
+{% extends 'base/base.html' %}
+
+{% block tittle %} TURNOS {% endblock%}
+
+{% block pagina %} turnos {% endblock %}
+
+
+{% block contenido %}
+
+¿Quieres sacar un turno? por favor rellena todos los campos a continuacion.
+<br>
+<h1>TURNOS:</h1>
+<br>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Enviar">
+    </form>
+    {% for turno in turnos %}
+    NOMBRE: {{ turno.nombre }}, NUMERO {{ turno.numero }}, CORREO {{ turno.correo }}, dni {{ turno.dni }}, fecha {{ turno.fecha }}
+    <br>
+    {% endfor %}
+
+{% endblock %}
