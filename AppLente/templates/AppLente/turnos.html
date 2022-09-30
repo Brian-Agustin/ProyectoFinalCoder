@@ -6,14 +6,8 @@
 
 
 {% block contenido %}
-¿Quieres sacar un turno? por favor rellena todos los campos a continuacion.
-<br>
-<h1></h1>
-<br>
-    <form action="" method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Enviar">
-    </form>
-
+<div>
+    <a href="{% url 'SacarTurno' %}" class="btn btn-primary btn-demo" style="margin: 3px 10px;">Sacar Turno</a>
+    <a href="{% url 'buscarturno' %}" class="btn btn-primary btn-demo" style="margin: 3px 10px;">Buscar Turno</a>
+</div>
 {% endblock %}

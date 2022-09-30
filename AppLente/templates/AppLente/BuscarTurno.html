@@ -1,0 +1,29 @@
+{% extends 'base/base.html' %}
+
+{% block tittle %} Buscar Turno {% endblock%}
+
+{% block pagina %} buscar turno {% endblock %}
+
+
+{% block contenido %}
+<div>
+    Esta es la pagina para buscar tu turno.
+</div>
+
+Porfavor, ingrese su DNI para saber si ya tiene un turno reservado!
+<br>
+
+<br>
+    <form action="/resultadoBusqueda" method="GET">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Buscar Turno">
+    </form>
+
+<br>
+<br>
+
+<div>
+    <a href="{% url 'inicio' %}" class="btn btn-primary btn-demo" style="margin: 3px 10px;">Volver al Inicio</a>
+</div>
+{% endblock %}

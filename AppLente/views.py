@@ -12,6 +12,10 @@ def inicio(request):
 
 @login_required
 def turno(request):
+
+    return render(request, 'AppLente/turnos.html')
+
+def sacarturno(request):
     if request.method == 'POST':
         mi_formulario = Turnof(request.POST)
         if mi_formulario.is_valid():
@@ -24,7 +28,7 @@ def turno(request):
         'form': Turnof(),
         'turnos': turnos
     }
-    return render(request, 'AppLente/turnos.html', contexto)
+    return render(request, 'AppLente/SacarTurno.html', contexto)
 
 
 @login_required
@@ -68,12 +72,12 @@ def cotizar(request):
 
 
 @login_required
-def recetas(request):
+def buscarturno(request):
     con = {
         'form' : BuscaTurnoPorDNI()
     }
 
-    return render(request, 'AppLente/recetas.html',con)
+    return render(request, 'AppLente/BuscarTurno.html', con)
 
 
 def resultadoBusqueda(request):
@@ -86,7 +90,7 @@ def resultadoBusqueda(request):
         return render(request,"AppLente/resultadoBusqueda.html",con)
     except:
         con = {
-            'resultado': "Tu dni nunca ingreso en la base de datos"
+            'resultado': "No tiene ningun turno registrado"
         }
-        return render(request,"AppLente/resultadoBusqueda.html",con)
+        return render(request,"AppLente/resultadoBusqueda2.html",con)
 

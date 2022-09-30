@@ -1,0 +1,22 @@
+{% extends 'base/base.html' %}
+{% block tittle %} RECETAS {% endblock %}
+
+{% block pagina %} recetas {% endblock %}
+{% block contenido %} 
+
+<br>
+<h1>El DNI ingresado</h1>
+
+<br>
+
+<p style="font-size:25px">{{resultado}}</p>
+<br>
+<br>
+<hr>
+
+<div>
+    <a href="{% url 'SacarTurno' %}" class="btn btn-primary btn-demo" style="margin: 3px 10px;">Sacar Turno</a>
+    <a href="{% url 'inicio' %}" class="btn btn-primary btn-demo" style="margin: 3px 10px;">Volver al Inicio</a>
+</div>
+
+{% endblock %}
