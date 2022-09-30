@@ -12,14 +12,13 @@ Ingrese sus datos aqui:
     <form action="" method="POST">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="{{ nombre_form }}">
+        <input type="submit" value="Registrarme">
     </form>
 
 <br>
 <br>
-¿Aun no tienes una cuenta?
-<div>
-    <a href="{% url 'AppUserRegister' %}" class="btn btn-primary btn-demo" style="margin: 3px 10px;">Registrarme</a>
-</div>
 
+<div>
+    <a href="{% url 'inicio' %}" class="btn btn-primary btn-demo" style="margin: 3px 10px;">Volver al Inicio</a>
+</div>
 {% endblock %}

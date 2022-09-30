@@ -65,7 +65,7 @@ def register(request):
         'nombre_form': 'Registro'
     }
 
-    return render(request, "AppUser/login.html", contexto)
+    return render(request, "AppUser/register.html", contexto)
 
 
 @login_required
