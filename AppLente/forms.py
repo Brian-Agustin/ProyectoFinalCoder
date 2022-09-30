@@ -12,7 +12,7 @@ class Turnof(forms.Form):
     numero = forms.IntegerField()
     correo = forms.EmailField()
     dni = forms.CharField(max_length=20)
-    fecha = forms.CharField(max_length=40)
+    fecha = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
 
 class Cotizaf(forms.Form):
     servicio = forms.CharField(max_length=50)
