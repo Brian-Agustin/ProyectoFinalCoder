@@ -1,0 +1,18 @@
+{% extends 'base/base.html' %}
+
+{% block tittle %} Editar usuario {% endblock%}
+
+{% block pagina %} editar usuario {% endblock %}
+
+
+{% block contenido %}
+edite sus datos aqui:
+<br>
+<br>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Confirmar">
+    </form>
+
+{% endblock %}

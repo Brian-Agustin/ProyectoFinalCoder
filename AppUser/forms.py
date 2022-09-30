@@ -9,3 +9,5 @@ class UserRegisterForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('email', 'username')
+
+        help_texts = {k: "" for k in fields}
