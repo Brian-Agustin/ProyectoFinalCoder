@@ -1,0 +1,25 @@
+{% extends 'base/base.html' %}
+
+{% block tittle %} {{ nombre_form }} {% endblock%}
+
+{% block pagina %} {{ nombre_form }} {% endblock %}
+
+
+{% block contenido %}
+Ingrese sus datos aqui:
+<br>
+<br>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="{{ nombre_form }}">
+    </form>
+
+<br>
+<br>
+¿Aun no tienes una cuenta?
+<div>
+    <a href="{% url 'AppUserRegister' %}" class="btn btn-primary btn-demo" style="margin: 3px 10px;">Registrarme</a>
+</div>
+
+{% endblock %}

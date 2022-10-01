@@ -9,10 +9,12 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+import dj_database_url
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -25,7 +27,11 @@ SECRET_KEY = 'django-insecure-70$a$l=nv$vxxvhqwl5)3e@m=3j13bhih38%*(g3(s!=d#8zi7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'vidavisual.cf',
+    'vidavisual.herokuapp.com',
+    '127.0.0.1'
+]
 
 
 # Application definition
@@ -38,10 +44,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'AppLente',
+    'AppUser',
+    "whitenoise.runserver_nostatic",
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -122,3 +131,15 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#LOGIN_URL, MEDIA_URL, MEDIA_ROOT
+
+LOGIN_URL = 'AppUserLogin'
+
+
+bd_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(bd_from_env)
+
+STATIC_ROOT = BASE_DIR / 'static'
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'staticfiles'),)
+CSRF_TRUSTED_ORIGINS = ['https://vidavisual.cf', 'https://*.127.0.0.1']

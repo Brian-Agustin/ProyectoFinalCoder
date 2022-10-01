@@ -1,11 +1,21 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
+from django.contrib import messages
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import authenticate
 from AppLente.models import Contacto, Turno, Cotiza
 from django.http import HttpResponse
 from AppLente.forms import Contactof, Turnof, Cotizaf,BuscaTurnoPorDNI
 from datetime import datetime
 def inicio(request):
     return render(request, 'index.html')
+
+@login_required
 def turno(request):
+
+    return render(request, 'AppLente/turnos.html')
+
+def sacarturno(request):
     if request.method == 'POST':
         mi_formulario = Turnof(request.POST)
         if mi_formulario.is_valid():
@@ -18,8 +28,10 @@ def turno(request):
         'form': Turnof(),
         'turnos': turnos
     }
-    return render(request, 'AppLente/turnos.html', contexto)
+    return render(request, 'AppLente/SacarTurno.html', contexto)
 
+
+@login_required
 def contacto(request):
 
     if request.method == 'POST':
@@ -41,6 +53,7 @@ def contacto(request):
     return render(request, 'AppLente/contacto.html', contexto)
 
 
+@login_required
 def cotizar(request):
 
     if request.method == 'POST':
@@ -57,12 +70,15 @@ def cotizar(request):
     }
     return render(request, 'AppLente/cotiza.html', contexto)
 
-def recetas(request):
+
+@login_required
+def buscarturno(request):
     con = {
         'form' : BuscaTurnoPorDNI()
     }
 
-    return render(request, 'AppLente/recetas.html',con)
+    return render(request, 'AppLente/BuscarTurno.html', con)
+
 
 def resultadoBusqueda(request):
     resultado = request.GET.get('dni')
@@ -74,6 +90,7 @@ def resultadoBusqueda(request):
         return render(request,"AppLente/resultadoBusqueda.html",con)
     except:
         con = {
-            'resultado': "Tu dni nunca ingreso en la base de datos"
+            'resultado': "No tiene ningun turno registrado"
         }
-        return render(request,"AppLente/resultadoBusqueda.html",con)
+        return render(request,"AppLente/resultadoBusqueda2.html",con)
+

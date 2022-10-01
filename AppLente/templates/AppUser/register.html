@@ -1,17 +1,18 @@
 {% extends 'base/base.html' %}
-{% block tittle %} CONTACTOS {% endblock %}
 
-{% block pagina %} contacto {% endblock %}
+{% block tittle %} {{ nombre_form }} {% endblock%}
+
+{% block pagina %} {{ nombre_form }} {% endblock %}
+
+
 {% block contenido %}
-
-Nos pondremos en contacto con usted lo antes posible:
-<h1>CONTACTENOS:</h1>
-
+Ingrese sus datos aqui:
+<br>
 <br>
     <form action="" method="POST">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Contactenos">
+        <input type="submit" value="Registrarme">
     </form>
 
 <br>

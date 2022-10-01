@@ -1,10 +1,4 @@
-{% extends 'base/base.html' %}
-{% load static %}
-
-{% block tittle %} INICIO {% endblock%}
-{% block one %}
-        <aside id="fh5co-hero">
-            <div class="flexslider">
+<div class="flexslider">
 				<ul class="slides">
 			   	<li style="background-image: url({% static 'AppLente/images/o2592172814165742008.jpg' %});">
 			   		<div class="overlay-gradient"></div>
@@ -12,37 +6,51 @@
 			   			<div class="row">
 				   			<div class="col-md-6 col-md-offset-3 col-md-pull-3 slider-text">
 				   				<div class="slider-text-inner">
-				   					<h1>¿Necesita un turno?</h1>
-										<h2>Reserva tu turno en unos simples pasos</h2>
-										<p><a class="btn btn-primary btn-demo" href="{% url 'turnos' %}"></i> Sacar turno</a></p>
+				   					<h1>¿Desea sacar turno?</h1>
+										<h2>Precione cualquiera de los dos <a href="http://Themewagon.com/theme_tag/free/" target="_blank">BOTONES</a></h2>
+										<p><a class="btn btn-primary btn-demo" href="#"></i> Sacar turno</a> <a class="btn btn-primary btn-learn">Leer Mas...</a></p>
 				   				</div>
 				   			</div>
 				   		</div>
 			   		</div>
 			   	</li>
-			   	<li style="background-image: url({% static 'AppLente/images/o2592172814165742008.jpg' %});">
+			   	<li style="background-image: url({% static 'AppLente/images/4544402_s-640x360.jpg' %});">
 			   		<div class="overlay-gradient"></div>
 			   		<div class="container-fluid">
 			   			<div class="row">
-				   			<div class="col-md-6 col-md-offset-3 col-md-pull-3 slider-text">
+				   			<div class="col-md-6 col-md-offset-3 col-md-push-3 slider-text">
 				   				<div class="slider-text-inner">
-				   					<h1>Contactenos Aqui!</h1>
-										<h2>Le responderemos en las proximas 24 hs.</h2>
-										<p><a class="btn btn-primary btn-demo" href="{% url 'contacto' %}"></i> Contactarme</a></p>
+				   					<h1>¿Desea enviarnos su receta?</h1>
+										<h2>Precione cualquiera de los dos<a href="http://Themewagon.com/theme_tag/free/" target="_blank"> BOTONES</a></h2>
+										<p><a class="btn btn-primary btn-demo" href="#"></i> Enviar receta</a> <a class="btn btn-primary btn-learn"> Leer mas...</a></p>
 				   				</div>
 				   			</div>
 				   		</div>
 			   		</div>
 			   	</li>
-				<li style="background-image: url({% static 'AppLente/images/o2592172814165742008.jpg' %});">
+			   	<li style="background-image: url({% static 'AppLente/images/asdffre.jpg' %});">
+			   		<div class="overlay-gradient"></div>
+			   		<div class="container-fluids">
+			   			<div class="row">
+				   			<div class="col-md-6 col-md-offset-3 slider-text">
+				   				<div class="slider-text-inner text-center">
+				   					<h1>¿Desea hacer una cotizacion?</h1>
+										<h2>Precione cualquiera de los dos <a href="http://Themewagon.com/theme_tag/free/" target="_blank">BOTONES</a></h2>
+										<p><a class="btn btn-primary btn-demo" href="#"></i> Hacer Cotizacion</a> <a class="btn btn-primary btn-learn">Leer mas...</a></p>
+				   				</div>
+				   			</div>
+				   		</div>
+			   		</div>
+			   	</li>
+			   	<li style="background-image: url({% static 'AppLente/images/Summer_Beach_Glasdfs.jpg' %});">
 			   		<div class="overlay-gradient"></div>
 			   		<div class="container-fluid">
 			   			<div class="row">
-				   			<div class="col-md-6 col-md-offset-3 col-md-pull-3 slider-text">
+				   			<div class="col-md-6 col-md-offset-3 col-md-push-3 slider-text">
 				   				<div class="slider-text-inner">
-				   					<h1>¿Quiere hacer una cotizacion?</h1>
-										<h2>dirigase al siguiente boton</h2>
-										<p><a class="btn btn-primary btn-demo" href="{% url 'cotizar' %}"></i> Cotizar</a></p>
+				   					<h1>¿Desea contactarnos?</h1>
+										<h2>Precione cualquiera de los dos <a href="http://Themewagon.com/theme_tag/free/" target="_blank">BOTONES</a></h2>
+										<p><a class="btn btn-primary btn-demo" href="#"></i> Contactenos</a> <a class="btn btn-primary btn-learn">Leer mas...</a></p>
 				   				</div>
 				   			</div>
 				   		</div>
@@ -50,11 +58,20 @@
 			   	</li>
 			  	</ul>
 		  	</div>
-       </aside>
-{% endblock %}
 
-{% block two %}
-        <div id="fh5co-services">
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="fh5co-services">
 			<div class="row">
 				<div class="col-md-4 text-center animate-box">
 					<div class="services">
@@ -98,7 +115,3 @@
 				</div>
 			</div>
 		</div>
-{% endblock %}
-
-{% block pagina %} inicio {% endblock %}
-{% block contenido %} En este lugar podras solicitar turnos, enviarnos tu receta de anteojo, hacer reportes y podras contactarnos. {% endblock %}
