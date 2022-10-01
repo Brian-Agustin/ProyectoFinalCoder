@@ -12,6 +12,6 @@ urlpatterns = [
     path('sacarturno/', sacarturno, name="SacarTurno"),
     path('buscarturno/', buscarturno, name="buscarturno"),
     path('resultadoBusqueda', resultadoBusqueda, name="resultadobusqueda"),
-    path('ContactoSucces/',SuccefulContactoPost, name="contactoSucceful")
-
+    path('ContactoSucces/',SuccefulContactoPost, name="contactoSucceful"),
+    path('sacarTurnoSucceful/',sacarTurnoSucceful,name="sacarTurnoSucceful")
 ]

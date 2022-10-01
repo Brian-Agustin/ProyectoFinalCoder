@@ -22,7 +22,7 @@ def sacarturno(request):
             data = mi_formulario.cleaned_data
             turno1 = Turno(nombre=data.get('nombre'), numero=data.get('numero'), correo=data.get('correo'), dni=data.get('dni'), fecha=data.get('fecha'))
             turno1.save()
-            return redirect('turnos')
+            return render(request,'AppLente/sacarTurnoSucceful.html')
     turnos = Turno.objects.all()
     contexto = {
         'form': Turnof(),
@@ -30,6 +30,8 @@ def sacarturno(request):
     }
     return render(request, 'AppLente/SacarTurno.html', contexto)
 
+def sacarTurnoSucceful(request):
+    render(request,'AppLente/sacarTurnoSucceful.html')
 
 @login_required
 def contacto(request):

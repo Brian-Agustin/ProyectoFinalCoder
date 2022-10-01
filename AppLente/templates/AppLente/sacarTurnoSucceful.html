@@ -1,14 +1,17 @@
 {% extends 'base/base.html' %}
-{% block tittle %} CONTACTOS {% endblock %}
 
-{% block pagina %} contacto {% endblock %}
+{% block tittle %} TURNOS {% endblock%}
+
+{% block pagina %} turnos {% endblock %}
+
+
 {% block contenido %}
 
 <br>
     <div>
-        <h1>Gracias!</h1>
-        <p class="txt">Tu mensaje fue enviado correctamente.</p>
-        <p class="txt">Gracias por contactarnos!</p>
+        <h1>Gracias, tu turno fue <br> registado!</h1>
+        <p class="txt">Tu turno fue registrado correctamente.</p>
+        <p class="txt">Gracias por elegirnos!</p>
     </div>
 <br>
 <br>
@@ -40,10 +43,11 @@
 </style>
 <script>
 Toastify({
-duration:2200,
-text: "Tu mensaje fue enviado!",
+duration:2600,
+text: "Tu turno fue registrado!",
 className: "info",
 }).showToast();
 
 </script>
+
 {% endblock %}
