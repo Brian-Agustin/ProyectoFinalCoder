@@ -41,7 +41,7 @@ def contacto(request):
             contacto1 = Contacto(nombre=data.get('nombre'), numero=data.get('numero'), correo=data.get('correo'), mensaje=data.get('mensaje'))
             contacto1.save()
 
-            return redirect('contacto')
+            return render(request,'AppLente/ContactoSuccessful.html')
 
     contactos = Contacto.objects.all()
 
@@ -51,6 +51,9 @@ def contacto(request):
     }
     
     return render(request, 'AppLente/contacto.html', contexto)
+
+def SuccefulContactoPost(request):
+    return render(request,'AppLente/ContactoSuccessful.html')
 
 
 @login_required
