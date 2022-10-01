@@ -1,0 +1,53 @@
+{% extends 'base/base.html' %}
+
+{% block tittle %} TURNOS {% endblock%}
+
+{% block pagina %} turnos {% endblock %}
+
+
+{% block contenido %}
+
+<br>
+    <div>
+        <h1>Gracias, tu turno fue <br> registado!</h1>
+        <p class="txt">Tu turno fue registrado correctamente.</p>
+        <p class="txt">Gracias por elegirnos!</p>
+    </div>
+<br>
+<br>
+
+<div>
+    <a href="{% url 'inicio' %}" class="btn btn-primary btn-demo" style="margin: 3px 10px;">Volver al Inicio</a>
+</div>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<style>
+    .info{
+        position: absolute;
+        padding: 12px;
+        border: black solid 2px;
+        font-size: 25px;
+        top: 7px;
+        right: 7px;
+        box-sizing: border-box;
+        color: white;
+        background: linear-gradient(90deg, rgba(51, 174, 23, 0.846) 0%, rgba(0,255,145,1) 91%);
+        font-weight: 700;
+        border-radius: 20px;
+
+    }
+    .txt{
+        font-size: 1.75em;
+        font-weight: 700;
+    }
+</style>
+<script>
+Toastify({
+duration:2600,
+text: "Tu turno fue registrado!",
+className: "info",
+}).showToast();
+
+</script>
+
+{% endblock %}
