@@ -141,5 +141,5 @@ bd_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(bd_from_env)
 
 STATIC_ROOT = BASE_DIR / 'static'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'AppLente/static'),)
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'staticfiles'),)
 CSRF_TRUSTED_ORIGINS = ['https://vidavisual.cf', 'https://*.127.0.0.1']
