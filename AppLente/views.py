@@ -43,7 +43,7 @@ def contacto(request):
             contacto1 = Contacto(nombre=data.get('nombre'), numero=data.get('numero'), correo=data.get('correo'), mensaje=data.get('mensaje'))
             contacto1.save()
 
-            return render(request, 'AppLente/ContactoSuccessful.html')
+            return render(request, 'AppLente/contactoSuccessful.html')
 
     contactos = Contacto.objects.all()
 
@@ -51,7 +51,7 @@ def contacto(request):
         'form': Contactof(),
         'contactos': contactos
     }
-    
+
     return render(request, 'AppLente/contacto.html', contexto)
 
 def SuccefulContactoPost(request):
