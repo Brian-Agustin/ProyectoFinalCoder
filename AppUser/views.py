@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
 from django.shortcuts import render, redirect
+from .forms import UserEditForm
 
 # Create your views here.
 from AppUser.forms import UserRegisterForm
@@ -70,17 +71,19 @@ def register(request):
 
 @login_required
 def editar_usuario(request):
+
     usuario = request.user
 
     if request.method == 'POST':
-        form = UserRegisterForm(request.POST)
-
+        form = UserEditForm(request.POST)
+        print(form)
         if form.is_valid():
+            data = form.cleaned_data
 
-            data = form.cleanned_data
-
-            usuario.username = data.get('username')  # username o como lo llamen en el form.py en la parte de Meta
-            usuario.email = data.get('email')
+            usuario.username = data["username"]  # username o como lo llamen en el data.py en la parte de Meta
+            usuario.email = data["email"]
+            usuario.password1 = data["password1"]
+            usuario.password2 = data["password2"]
 
             usuario.save()
 
@@ -92,8 +95,9 @@ def editar_usuario(request):
         return redirect('inicio')
 
     contexto = {
-        'form': UserRegisterForm(initial={'username': usuario.username, 'email': usuario.email}),
+        'form': UserEditForm(),
         'nombre_form': 'Editar Usuario'
     }
 
     return render(request, 'AppUser/login.html', contexto)
+ 
