@@ -3,11 +3,13 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate
-from AppLente.models import Contacto, Turno, Cotiza
+from AppLente.models import Contacto, Turno, Cotiza, Avatar
 from django.http import HttpResponse
 from AppLente.forms import Contactof, Turnof, Cotizaf,BuscaTurnoPorDNI
 from datetime import datetime
+
 def inicio(request):
+    """ avatares = Avatar.objects.filter(user = request.user.id) """
     return render(request, 'index.html')
 
 @login_required

@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Contacto(models.Model):
     nombre = models.CharField(max_length=50)
@@ -21,4 +22,8 @@ class Cotiza(models.Model):
     def __str__(self):
         return f"Servicio: {self.servicio}, mensaje: {self.mensaje}"
 
+class Avatar(models.Model):
+    user = models.ForeignKey(User, on_delete = models.CASCADE)
 
+    #carpeta de MEDIA
+    imagen = models.ImageField(upload_to="avatares", null=True, blank=True)

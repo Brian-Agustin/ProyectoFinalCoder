@@ -143,3 +143,6 @@ DATABASES['default'].update(bd_from_env)
 STATIC_ROOT = BASE_DIR / 'static'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'AppLente/static'),)
 CSRF_TRUSTED_ORIGINS = ['https://vidavisual.cf', 'https://*.127.0.0.1']
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
