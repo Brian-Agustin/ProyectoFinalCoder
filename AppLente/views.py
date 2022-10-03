@@ -1,3 +1,4 @@
+import data as data
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib import messages
@@ -5,7 +6,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate
 from AppLente.models import Contacto, Turno, Cotiza
 from django.http import HttpResponse
-from AppLente.forms import Contactof, Turnof, Cotizaf,BuscaTurnoPorDNI
+from AppLente.forms import Contactof, Turnof, Cotizaf, BuscaTurnoPorDNI
 from datetime import datetime
 def inicio(request):
     return render(request, 'index.html')
@@ -92,10 +93,16 @@ def resultadoBusqueda(request):
         con = {
             'resultado': dniEncontrado.get()['dni'],
         }
-        return render(request,"AppLente/resultadoBusqueda.html",con)
+        return render(request,"AppLente/resultadoBusqueda.html", con)
     except:
         con = {
             'resultado': "No tiene ningun turno registrado"
         }
-        return render(request,"AppLente/resultadoBusqueda2.html",con)
+        return render(request,"AppLente/resultadoBusqueda2.html", con)
+
+
+
+
+
+
 

@@ -1,18 +1,30 @@
 {% extends 'base/base.html' %}
-{% block tittle %} RECETAS {% endblock %}
+{% block tittle %} Recetas {% endblock %}
 
-{% block pagina %} recetas {% endblock %}
-{% block contenido %} 
+{% block pagina %} Recetas {% endblock %}
+{% block contenido %}
+
 
 <br>
-<h2>Envianos tu DNI aqui:</h2>
+envienos su receta aqui
 <br>
-    <form action="/resultadoBusqueda" method="GET">
+
+
+    <form action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        {{form.as_p}}
-        <input type="submit" value="Buscar">
+        {{ form.as_p }}
+        <br>
+
+        <input type="submit" value="Enviar">
     </form>
 
+
+<br>
+<br>
+
+<div>
+    <a href="{% url 'inicio' %}" class="btn btn-primary btn-demo" style="margin: 3px 10px;">Volver al Inicio</a>
+</div>
 
 
 {% endblock %}
