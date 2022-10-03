@@ -4,10 +4,12 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate
-from AppLente.models import Contacto, Turno, Cotiza
+from AppLente.models import Contacto, Turno, Cotiza, Image
 from django.http import HttpResponse
-from AppLente.forms import Contactof, Turnof, Cotizaf, BuscaTurnoPorDNI
+from AppLente.forms import Contactof, Turnof, Cotizaf, BuscaTurnoPorDNI, ImageForm
 from datetime import datetime
+from .models import Image
+from .forms import ImageForm
 def inicio(request):
     return render(request, 'index.html')
 
@@ -100,9 +102,17 @@ def resultadoBusqueda(request):
         }
         return render(request,"AppLente/resultadoBusqueda2.html", con)
 
+@login_required()
+def showimage(request):
+    lastimage = Image.objects.last()
+    imagefile = Image.imagefile
 
+    form = ImageForm(request.POST or None, request.FILES or None)
+    if form.is_valid():
+        form.save()
 
-
-
-
-
+    contexto = {
+        'imagefile': imagefile,
+        'form': form
+    }
+    return render(request, 'AppLente/recetas.html', contexto)

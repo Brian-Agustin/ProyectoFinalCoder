@@ -1,5 +1,7 @@
 from django import forms
 
+from AppLente.models import Image
+
 
 class Contactof(forms.Form):
     nombre = forms.CharField(max_length=40)
@@ -33,3 +35,7 @@ class BuscaTurnoPorDNI(forms.Form):
     dni = forms.CharField(max_length=20)
 
 
+class ImageForm(forms.ModelForm):
+    class Meta:
+        model = Image
+        fields = ['imagefile']

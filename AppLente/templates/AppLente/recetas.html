@@ -6,20 +6,17 @@
 
 
 <br>
-envienos su receta aqui
+ENVIE SU RECETA AQUI<br>
+Complete a continuación y adjunte la foto de su receta en formato electrónico.
+Es importante que conserve su receta original; será solicitada por nuestro personal.
 <br>
 
-
-    <form action="" method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <br>
-
-        <input type="submit" value="Enviar">
+    <form enctype="multipart/form-data" method="POST" action="">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Enviar receta"/>
     </form>
 
-
-<br>
 <br>
 
 <div>
