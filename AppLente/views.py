@@ -89,9 +89,9 @@ def buscarturno(request):
 def resultadoBusqueda(request):
     resultado = request.GET.get('dni')
     try:
-        dniEncontrado = Turno.objects.filter(dni__exact = resultado).values('dni')
+        dniEncontrado = Turno.objects.filter(dni__exact = resultado).values("fecha")
         con = {
-            'resultado': dniEncontrado.get()['dni'],
+            'resultado': dniEncontrado.get()['fecha'],
         }
         return render(request,"AppLente/resultadoBusqueda.html", con)
     except:
