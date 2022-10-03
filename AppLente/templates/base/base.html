@@ -78,6 +78,8 @@
 						<ul>
 							{% if user.is_authenticated %}
 								<h5>Hola: {{ user.get_username }}</h5>
+								<img height="20px" src=" {{ user.avatar.imagen.url }} " alt="NOIMAGEN">
+
 								<li class="btn btn-primary btn-learn"><a href="{% url 'AppUserEditar' %}">Editar Usuario</a></li>
 								<li class="btn btn-primary btn-learn"><a href="{% url 'AppUserlogout' %}">Cerrar Sesion</a></li>
 

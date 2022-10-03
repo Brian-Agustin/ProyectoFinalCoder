@@ -9,7 +9,9 @@ from AppLente.forms import Contactof, Turnof, Cotizaf,BuscaTurnoPorDNI
 from datetime import datetime
 
 def inicio(request):
-    """ avatares = Avatar.objects.filter(user = request.user.id) """
+    user = request.user
+    print(f'este es el user {user}')
+    print(f'DATO DEL USER:   {(dir(user))}')
     return render(request, 'index.html')
 
 @login_required
