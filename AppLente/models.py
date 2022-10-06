@@ -1,4 +1,7 @@
+from django.conf import settings
 from django.db import models
+from django.db.models.signals import pre_save, post_save
+from django.utils.text import slugify
 
 
 class Contacto(models.Model):

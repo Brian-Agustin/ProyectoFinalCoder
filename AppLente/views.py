@@ -8,8 +8,7 @@ from AppLente.models import Contacto, Turno, Cotiza, Image
 from django.http import HttpResponse
 from AppLente.forms import Contactof, Turnof, Cotizaf, BuscaTurnoPorDNI, ImageForm
 from datetime import datetime
-from .models import Image
-from .forms import ImageForm
+
 def inicio(request):
     return render(request, 'index.html')
 
