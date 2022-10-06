@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'AppLente',
     'AppUser',
+    'AppComentarios',
     "whitenoise.runserver_nostatic",
 ]
 

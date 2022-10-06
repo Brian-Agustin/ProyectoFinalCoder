@@ -1,0 +1,46 @@
+{% extends 'base/base.html' %}
+
+{% block tittle %} Comentarios {% endblock%}
+
+{% block pagina %} Comentarios {% endblock %}
+
+{% block main %}
+<div class="main_div">
+    {% for post in post %}
+        <article class="feed_one feed_principal">
+            <header class="titulo_header">
+                <h2 class="big">
+                    {{post.texto}}
+                </h2>
+            </header>
+
+            <div class="feed_propiedad">
+                <div class="feed_avatar">
+                    <a style="background-image: url();" class="UserAvatar"></a>
+                </div>
+
+                <div class="feed_detalles">
+                    <div class="feed_meta feed_meta_owner">
+                        <a href="" class="UserOnline" style="display: flex;">
+                            {{post.usuario}}
+                        </a>
+                    </div>
+
+                    <a href="">
+                        <button class="b_comentar">
+                            comentar
+                        </button>
+                    </a>
+
+                </div>
+            </div>
+
+        </article>
+
+    {% empty %}
+        <h1> vacio </h1>
+
+    {% endfor %}
+
+</div>
+{% endblock %}
