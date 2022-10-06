@@ -5,6 +5,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.shortcuts import render, redirect
 
 # Create your views here.
+from AppLente.models import Avatar
 from AppUser.forms import UserRegisterForm
 
 
@@ -48,14 +49,16 @@ def register(request):
     if request.method == 'POST':
 
         # form = UserCreationForm(request.POST)
-        form = UserRegisterForm(request.POST)
+        form = UserRegisterForm(request.POST, request.FILES)
 
         if form.is_valid():
-            form.save()
+            usuario = form.save()
+            avatar = Avatar(user=usuario, imagen=form.cleaned_data.get('imagen'))
+            avatar.save()
             messages.info(request, 'Usuario registrado correctamente!')
 
         else:
-            messages.info(request, 'Tu Usuario no pudo ser registrado!')
+            messages.info(request, form.errors)
 
         return redirect('inicio')
 
@@ -65,7 +68,7 @@ def register(request):
         'nombre_form': 'Registro'
     }
 
-    return render(request, "AppUser/login.html", contexto)
+    return render(request, "AppUser/register.html", contexto)
 
 
 @login_required
@@ -97,3 +100,5 @@ def editar_usuario(request):
     }
 
     return render(request, 'AppUser/login.html', contexto)
+
+

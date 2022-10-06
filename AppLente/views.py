@@ -103,7 +103,6 @@ def resultadoBusqueda(request):
 
 @login_required()
 def showimage(request):
-    lastimage = Image.objects.last()
     imagefile = Image.imagefile
 
     form = ImageForm(request.POST or None, request.FILES or None)

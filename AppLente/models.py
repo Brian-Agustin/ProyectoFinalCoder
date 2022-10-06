@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.contrib.auth.models import User
 from django.db import models
 from django.db.models.signals import pre_save, post_save
 from django.utils.text import slugify
@@ -32,8 +33,14 @@ class Cotiza(models.Model):
     def __str__(self):
         return f"Servicio: {self.servicio}, mensaje: {self.mensaje}"
 
+
 class Image(models.Model):
     imagefile = models.FileField(upload_to='images/', null=True, verbose_name='')
 
     def __str__(self):
         return str(self.imagefile)
+
+
+class Avatar(models.Model):
+    imagen = models.ImageField(upload_to="avatar/", null=True, blank=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)

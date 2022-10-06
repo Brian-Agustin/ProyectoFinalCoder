@@ -5,9 +5,10 @@ from django.contrib.auth.models import User
 
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()
+    imagen = forms.ImageField()
 
     class Meta:
         model = User
-        fields = ('email', 'username')
+        fields = ('email', 'username', 'imagen')
 
         help_texts = {k: "" for k in fields}
