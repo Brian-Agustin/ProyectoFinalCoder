@@ -1,18 +1,27 @@
 {% extends 'base/base.html' %}
-{% block tittle %} RECETAS {% endblock %}
+{% block tittle %} Recetas {% endblock %}
 
-{% block pagina %} recetas {% endblock %}
-{% block contenido %} 
+{% block pagina %} Recetas {% endblock %}
+{% block contenido %}
+
 
 <br>
-<h2>Envianos tu DNI aqui:</h2>
+ENVIE SU RECETA AQUI<br>
+Complete a continuación y adjunte la foto de su receta en formato electrónico.
+Es importante que conserve su receta original; será solicitada por nuestro personal.
 <br>
-    <form action="/resultadoBusqueda" method="GET">
-        {% csrf_token %}
-        {{form.as_p}}
-        <input type="submit" value="Buscar">
+
+    <form enctype="multipart/form-data" method="POST" action="">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Enviar receta"/>
     </form>
 
+<br>
+
+<div>
+    <a href="{% url 'inicio' %}" class="btn btn-primary btn-demo" style="margin: 3px 10px;">Volver al Inicio</a>
+</div>
 
 
 {% endblock %}

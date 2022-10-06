@@ -34,12 +34,15 @@
 	<meta name="twitter:image" content="" />
 	<meta name="twitter:url" content="" />
 	<meta name="twitter:card" content="" />
-
+style_co.css
 	<link href="https://fonts.googleapis.com/css?family=Oxygen:300,400" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
 
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="{% static 'AppLente/css/animate.css' %}">
+
+		#style_co
+	<link rel="stylesheet" href="{% static 'AppLente/css/style_co.css' %}">
 	<!-- Icomoon Icon Fonts-->
 	<link rel="stylesheet" href="{% static 'AppLente/css/icomoon.css' %}">
 	<!-- Bootstrap  -->
@@ -89,9 +92,7 @@
 
 							<li><a href="{% url 'inicio' %}">Inicio</a></li>
 							<li><a href="{% url 'turnos' %}">Turnos</a></li>
-							<li class="has-dropdown">
-								<a href="#">Recetas</a>
-							</li>
+							<li><a href="{% url 'recetas' %}">Recetas</a></li>
 							<li><a href="{% url 'cotizar' %}">Cotizar</a></li>
 							<li><a href="{% url 'contacto' %}">Contactos</a></li>
 						</ul>
@@ -119,6 +120,9 @@
 				<div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
 					<h2>Bienvenido a la pagina de{% block pagina %}  {% endblock %}</h2>
 					<p>{% block contenido %}  {% endblock %}</p>
+					<div class="contenedor_main">
+						{% block main %} {% endblock %}
+					</div>
 				</div>
 			</div>
 		</div>
@@ -132,34 +136,19 @@
 					<h4>Informacion nuestra</h4>
 					<p>Optica VidaVisual – óptica en la ciudad de Buenos Aires. Ofrecemos anteojos recetados y para sol, como así también lentes de contacto descartables.</p>
 				</div>
-				<div class="col-md-3 col-md-push-1">
-					<h4>Contenido</h4>
-					<ul class="fh5co-footer-links">
-						<li><a href="#">Importancia de usar lentes</a></li>
-						<li><a href="#">Anteojo y barbijo</a></li>
-						<li><a href="#">Limpieza</a></li>
-					</ul>
-				</div>
 
 				<div class="col-md-3 col-md-push-1">
 					<h4>Links</h4>
 					<ul class="fh5co-footer-links">
-						<li><a href="#">Inicio</a></li>
-						<li><a href="#">Turnos</a></li>
-						<li><a href="#">Recetas</a></li>
-						<li><a href="#">Cotizar</a></li>
-						<li><a href="#">Nosotros</a></li>
+						<li><a href="{% url 'inicio' %}">Inicio</a></li>
+						<li><a href="{% url 'turnos' %}">Turnos</a></li>
+						<li><a href="{% url 'recetas' %}">Recetas</a></li>
+						<li><a href="{% url 'cotizar' %}">Cotizar</a></li>
+						<li><a href="{% url 'contacto' %}">Nosotros</a></li>
+						<li><a href="{% url 'contacto' %}">About</a></li>
 					</ul>
 				</div>
 
-				<div class="col-md-3">
-					<h4>Informacion de contacto</h4>
-					<ul class="fh5co-footer-links">
-						<li>Buenos aires, calle 123 <br> entre calle 12345</li>
-						<li><a href="tel://1234567920">+ 54 4444 5555</a></li>
-						<li><a href="mailto:info@yoursite.com">vidavisual@optica.com</a></li>
-					</ul>
-				</div>
 
 			</div>
 
