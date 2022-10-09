@@ -90,9 +90,9 @@ def buscarturno(request):
 def resultadoBusqueda(request):
     resultado = request.GET.get('dni')
     try:
-        dniEncontrado = Turno.objects.filter(dni__exact = resultado).values("fecha")
+        dniEncontrado = Turno.objects.filter(dni__exact=resultado).values("dni")
         con = {
-            'resultado': dniEncontrado.get()['fecha'],
+            'resultado': dniEncontrado.get()['dni'],
         }
         return render(request,"AppLente/resultadoBusqueda.html", con)
     except:
@@ -117,3 +117,9 @@ def showimage(request):
 
 def about(request):
     return render(request, 'AppLente/about.html')
+
+def d_turnos(request, dni):
+    turno_delete = Turno.objects.get(dni=dni)
+    turno_delete.delete()
+    messages.info(request, f'El turno {turno_delete} fue cancelado')
+    return redirect('inicio')

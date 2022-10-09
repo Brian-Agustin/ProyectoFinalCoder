@@ -17,7 +17,8 @@ urlpatterns = [
     path('ContactoSucces/', SuccefulContactoPost, name="contactoSucceful"),
     path('sacarTurnoSucceful/', sacarTurnoSucceful, name="sacarTurnoSucceful"),
     path('recetas/', showimage, name="recetas"),
-    path('about/', about, name='about')
+    path('about/', about, name='about'),
+    path('d_turno/<int:dni>', d_turnos, name='d_turno')
 ]
 
 
