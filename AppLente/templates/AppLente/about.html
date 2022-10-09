@@ -1,0 +1,21 @@
+{% extends 'base/base.html' %}
+
+{% block tittle %} About {% endblock%}
+
+{% block pagina %} About {% endblock %}
+
+
+{% block contenido %}
+<h1>¿Quienes somos?</h1>
+<br>
+<br>
+<h3><strong>Brian Agustin</strong></h3><br>
+<h4>Estudiante y actualmente cursando curso de python y desarrollo web </h4>
+<br>
+<h3><strong>Pedro Suarez</strong></h3><br>
+<h4>Estudiante y actualmente cursando curso de python, curso realizado js</h4>
+
+<div>
+    <a href="{% url 'inicio' %}" class="btn btn-primary btn-demo" style="margin: 3px 10px;">Volver al Inicio</a>
+</div>
+{% endblock %}

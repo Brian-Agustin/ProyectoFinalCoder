@@ -114,3 +114,6 @@ def showimage(request):
         'form': form
     }
     return render(request, 'AppLente/recetas.html', contexto)
+
+def about(request):
+    return render(request, 'AppLente/about.html')
