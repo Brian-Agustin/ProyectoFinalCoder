@@ -123,3 +123,37 @@ def d_turnos(request, dni):
     turno_delete.delete()
     messages.info(request, f'El turno {turno_delete} fue cancelado')
     return redirect('inicio')
+
+def ed_tu(request, dni):
+
+    ed_tu = Turno.objects.get(dni=dni)
+
+    if request.method == 'POST':
+        mi_formulario = Turnof(request.POST)
+
+        if mi_formulario.is_valid():
+            data = mi_formulario.cleaned_data
+
+            ed_tu.nombre = data.get('nombre')
+            ed_tu.numero = data.get('numero')
+            ed_tu.correo = data.get('correo')
+            ed_tu.dni = data.get('dni')
+            ed_tu.fecha = data.get('fecha')
+
+            ed_tu.save()
+
+            return render(request,'AppLente/sacarTurnoSucceful.html')
+
+    contexto = {
+        'form': Turnof(
+            initial={
+                'nombre': ed_tu.nombre,
+                'numero': ed_tu.numero,
+                'correo': ed_tu.correo,
+                'dni': ed_tu.dni,
+                'fecha': ed_tu.fecha
+            }
+        )
+     }
+
+    return render(request, 'AppLente/SacarTurno.html', contexto)
