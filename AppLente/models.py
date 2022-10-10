@@ -19,7 +19,7 @@ class Turno(models.Model):
     nombre = models.CharField(max_length=50)
     numero = models.IntegerField()
     correo = models.EmailField()
-    dni = models.CharField(max_length=20)
+    dni = models.CharField(max_length=20, unique=True)
     fecha = models.CharField(max_length=20)
 
     def __str__(self):

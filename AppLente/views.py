@@ -1,9 +1,11 @@
 import data as data
+import django
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate
+
 from AppLente.models import Contacto, Turno, Cotiza, Image
 from django.http import HttpResponse
 from AppLente.forms import Contactof, Turnof, Cotizaf, BuscaTurnoPorDNI, ImageForm
@@ -23,8 +25,17 @@ def sacarturno(request):
         if mi_formulario.is_valid():
             data = mi_formulario.cleaned_data
             turno1 = Turno(nombre=data.get('nombre'), numero=data.get('numero'), correo=data.get('correo'), dni=data.get('dni'), fecha=data.get('fecha'))
-            turno1.save()
-            return render(request,'AppLente/sacarTurnoSucceful.html')
+            try:
+                turno1.save()
+                return render(request, 'AppLente/sacarTurnoSucceful.html')
+
+            except django.db.utils.IntegrityError:
+                messages.error(request, 'la modificacion fallo, este dni ya existe')
+                return render(request, 'index.html')
+
+
+
+
     turnos = Turno.objects.all()
     contexto = {
         'form': Turnof(),
@@ -140,9 +151,13 @@ def ed_tu(request, dni):
             ed_tu.dni = data.get('dni')
             ed_tu.fecha = data.get('fecha')
 
-            ed_tu.save()
+            try:
+                ed_tu.save()
+                return render(request, 'AppLente/sacarTurnoSucceful.html')
 
-            return render(request,'AppLente/sacarTurnoSucceful.html')
+            except django.db.utils.IntegrityError:
+                messages.error(request, 'La edicion fallo, ese dni ya existe')
+
 
     contexto = {
         'form': Turnof(
