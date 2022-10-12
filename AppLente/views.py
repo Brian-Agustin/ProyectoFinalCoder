@@ -132,7 +132,7 @@ def about(request):
 def d_turnos(request, dni):
     turno_delete = Turno.objects.get(dni=dni)
     turno_delete.delete()
-    messages.info(request, f'El turno {turno_delete} fue cancelado')
+    messages.info(request, f'El turno con el dni: {dni}, fue cancelado')
     return redirect('inicio')
 
 def ed_tu(request, dni):
